@@ -19,7 +19,7 @@ class GoalEdit extends React.Component {
 
   render() {
     return (
-      <div className="component goal-edit">
+      <div className="goal-edit">
         <h2>Edit Your Goal</h2>
         <GoalForm
           history={this.props.history}

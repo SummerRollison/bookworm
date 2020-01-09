@@ -15,16 +15,14 @@ export const BookSearchForm = props => {
   };
 
   return (
-    <div className="component">
+    <div>
       <form onSubmit={onFormSubmit} id="Book-Search-Form">
         <div className="row">
           <div className="col-1-2">
-            <input type="text" id="title" ref={title} />
-            <label htmlFor="title">Title</label>
+            <input type="text" id="title" ref={title} placeholder="Title" />
           </div>
           <div className="col-1-2">
-            <input type="text" id="author" ref={author} />
-            <label htmlFor="author">Author</label>
+            <input type="text" id="author" ref={author} placeholder="Author" />
           </div>
         </div>
         <button type="submit">Search</button>

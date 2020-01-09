@@ -37,7 +37,7 @@ class SearchDisplay extends React.Component {
     }
   };
 
-  renderBook = book => {
+  renderBook = (book, index) => {
     const {
       title,
       authors,
@@ -45,6 +45,7 @@ class SearchDisplay extends React.Component {
       imageLinks,
       industryIdentifiers
     } = book;
+
     return (
       <div
         key={industryIdentifiers[0].identifier}
@@ -52,7 +53,7 @@ class SearchDisplay extends React.Component {
       >
         <div className="col-1-3">{this.imageCheck(imageLinks, title)}</div>
         <div className="col-2-3">
-          <h3>{title}</h3>
+          <h3 className="bold">{title}</h3>
           {this.authorCheck(authors)}
           <p>{description}</p>
         </div>
@@ -62,11 +63,11 @@ class SearchDisplay extends React.Component {
   };
 
   mapResults = () => {
-    return this.props.searchList.map(book => this.renderBook(book));
+    return this.props.searchList.map(this.renderBook);
   };
 
   render() {
-    return <div className="component">{this.mapResults(this.bookList)}</div>;
+    return <section>{this.mapResults(this.bookList)}</section>;
   }
 }
 

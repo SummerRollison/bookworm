@@ -28,10 +28,10 @@ class ReadList extends React.Component {
     const { title, authors, description, imageLinks, id } = book;
 
     return (
-      <div key={id} className="component book-list row">
+      <div key={id} className="book-list row">
         <div className="col-1-3">{this.imageCheck(imageLinks)}</div>
         <div col="col-2-3">
-          <h3>{title}</h3>
+          <h3 className="bold">{title}</h3>
           {this.authorCheck(authors)}
           <p>{description}</p>
         </div>
@@ -48,10 +48,10 @@ class ReadList extends React.Component {
 
   render() {
     return (
-      <div className="component">
-        <h1>Read</h1>
+      <section>
+        <h1 className="text-shadow heading">Completed Books</h1>
         {this.mapResults()}
-      </div>
+      </section>
     );
   }
 }

@@ -29,7 +29,7 @@ class CurrentChallenge extends React.Component {
     const { title, authors, imageLinks, id } = book;
 
     return (
-      <div key={id} className="component book-list row">
+      <div key={id} className="book-list row">
         <div className="col-1-3">{this.imageCheck(imageLinks)}</div>
         <div col="col-2-3">
           <h3>{title}</h3>
@@ -48,10 +48,12 @@ class CurrentChallenge extends React.Component {
 
   render() {
     return (
-      <div className="component">
+      <div>
         <GoalDisplay button="Edit Goal" link="/edit-goal" />
-        <h1>Current Challenge Book List</h1>
-        {this.mapResults(this.props.filteredBookList)}
+        <section>
+          <h1 className="text-shadow heading">Current Challenge Book List</h1>
+          {this.mapResults(this.props.filteredBookList)}
+        </section>
       </div>
     );
   }

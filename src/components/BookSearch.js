@@ -9,6 +9,13 @@ class BookSearch extends React.Component {
     return fetch(URL)
       .then(response => response.json())
       .then(json => json.items.map(book => book.volumeInfo))
+      .then(mappedResults =>
+        mappedResults.filter(
+          bookResult =>
+            Array.isArray(bookResult.industryIdentifiers) &&
+            bookResult.industryIdentifiers.length >= 1
+        )
+      )
       .then(mappedResults => this.props.bookSearch(mappedResults));
   };
 
@@ -26,10 +33,10 @@ class BookSearch extends React.Component {
 
   render() {
     return (
-      <div className="component">
-        <h2>Add A Book</h2>
+      <section>
+        <h2 className="text-shadow">Search Books</h2>
         <BookSearchForm handleSubmit={this.formatSearchParams} />
-      </div>
+      </section>
     );
   }
 }

@@ -1,0 +1,41 @@
+header {
+  width: 90%;
+  margin: 30px auto;
+}
+
+.title {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #f6ded5;
+}
+
+nav a {
+  font-size: 1.4em;
+  float: left;
+  width: 33%;
+  color: #f6ded5;
+  text-align: center;
+}
+
+nav {
+  width: 100%;
+  max-width: 500px;
+  overflow: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav-bar {
+  width: 90%;
+  margin: 0 auto 50px auto;
+  padding-bottom: 40px;
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #f6ded5 10%,
+    #f6ded5 90%,
+    transparent 100%
+  );
+  border-image-slice: 1;
+}

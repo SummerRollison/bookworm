@@ -10,7 +10,7 @@ class GoalDisplay extends React.Component {
   goalMessage = props => {
     if (this.booksLeft() <= 0) {
       return (
-        <div className="segment component">
+        <section className="segment">
           <h2>
             Congrats! You reached your goal of reading{" "}
             <span className="bold">{this.props.currentGoal}</span> books!
@@ -18,11 +18,11 @@ class GoalDisplay extends React.Component {
           <Link to="/edit-goal">
             <button>Let's Go Again!</button>
           </Link>
-        </div>
+        </section>
       );
     } else {
       return (
-        <div className="segment component">
+        <section className="segment">
           <h2>
             You have read{" "}
             <span className="bold">{this.props.currentCount}</span> books, only{" "}
@@ -31,7 +31,7 @@ class GoalDisplay extends React.Component {
           <Link to={this.props.link}>
             <button>{this.props.button}</button>
           </Link>
-        </div>
+        </section>
       );
     }
   };
