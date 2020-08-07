@@ -7,7 +7,12 @@ class BookSearch extends React.Component {
   fetchSearch = searchParams => {
     const URL = `https://www.googleapis.com/books/v1/volumes?q=${searchParams}&key=AIzaSyAzEyWhxzmYAGXzsDwcJmVGhF5IMpfnGuc`;
     return fetch(URL)
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw Error(response.statusText);
+        }
+        return response.json()
+      })
       .then(json => json.items.map(book => book.volumeInfo))
       .then(mappedResults =>
         mappedResults.filter(
@@ -16,7 +21,8 @@ class BookSearch extends React.Component {
             bookResult.industryIdentifiers.length >= 1
         )
       )
-      .then(mappedResults => this.props.bookSearch(mappedResults));
+      .then(mappedResults => this.props.bookSearch(mappedResults))
+      .catch(err => window.alert('Something went wrong, try again'));
   };
 
   formatSearchParams = formValues => {
